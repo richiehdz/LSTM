@@ -1,0 +1,38 @@
+ADMINISTRACION DE BASES DE DATOS: 35.45 cupos promedio por sección
+ADMINISTRACION DE REDES: 30.25 cupos promedio por sección
+ADMINISTRACION DE SERVIDORES: 36.41 cupos promedio por sección
+ALGORITMIA: 40.77 cupos promedio por sección
+ALMACENES DE DATOS (DATA WAREHOUSE): 37.19 cupos promedio por sección
+BASES DE DATOS: 37.49 cupos promedio por sección
+CLASIFICACION INTELIGENTE DE DATOS: 36.3 cupos promedio por sección
+COMPUTO FLEXIBLE (SOFTCOMPUTING): 80.5 cupos promedio por sección
+CONTROL DE PROYECTOS: 36.24 cupos promedio por sección
+ESTADISTICA Y PROCESOS ESTOCASTICOS: 34.45 cupos promedio por sección
+ESTRUCTURAS DE DATOS I: 38.87 cupos promedio por sección
+ESTRUCTURAS DE DATOS II: 40.04 cupos promedio por sección
+HIPERMEDIA: 32.86 cupos promedio por sección
+INGENIERIA DE SOFTWARE I: 40.25 cupos promedio por sección
+INGENIERIA DE SOFTWARE II: 38.69 cupos promedio por sección
+MATEMATICA DISCRETA: 37.73 cupos promedio por sección
+METODOS MATEMATICOS I: 38.27 cupos promedio por sección
+METODOS MATEMATICOS II: 37.99 cupos promedio por sección
+MINERIA DE DATOS: 37.0 cupos promedio por sección
+PROGRAMACION: 39.22 cupos promedio por sección
+PROGRAMACION PARA INTERNET: 28.76 cupos promedio por sección
+PROYECTO DE GESTION DE LA TECNOLOGIA DE INFORMACION: 90.92 cupos promedio por sección
+PROYECTO DE SISTEMAS ROBUSTOS, PARALELOS Y DISTRIBUIDOS: 90.92 cupos promedio por sección
+SEGURIDAD DE LA INFORMACION: 40.07 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE BASES DE DATOS: 24.62 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE PROGRAMACION: 23.39 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE ALGORITMIA: 25.72 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE ESTRUCTURAS DE DATOS I: 26.39 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE ESTRUCTURAS DE DATOS II: 24.29 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE METODOS MATEMATICOS I: 36.59 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE METODOS MATEMATICOS II: 35.03 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE INGENIERIA DE SOFTWARE I: 27.84 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE USO, ADAPTACION, EXPLOTACION DE SISTEMAS OPERATIVOS: 29.13 cupos promedio por sección
+SEMINARIO DE SOLUCION DE PROBLEMAS DE SISTEMAS BASADOS EN CONOCIMIENTO: 34.3 cupos promedio por sección
+SISTEMAS BASADOS EN CONOCIMIENTO: 34.51 cupos promedio por sección
+TEORIA DE LA COMPUTACION: 40.17 cupos promedio por sección
+USO, ADAPTACION Y EXPLOTACION DE SISTEMAS OPERATIVOS: 40.05 cupos promedio por sección
+ANALISIS DE PROBLEMAS GLOBALES DEL SIGLO XXI: 143.86 cupos promedio por sección

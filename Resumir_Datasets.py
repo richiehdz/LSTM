@@ -1,0 +1,49 @@
+import pandas as pd
+import glob
+import os
+
+datasetsLocation = 'datasets/*.xlsx'
+files = glob.glob(datasetsLocation)
+
+for file in files:
+    df = pd.read_excel(file)
+    classes = []
+    columnaMaterias = df['Materia'].dropna().unique()
+    
+    diffsec = {}
+    for renglon in columnaMaterias:
+        if renglon not in classes:
+            classes.append(renglon)
+
+        dfMateria = df[df['Materia'] == renglon]
+        num_secciones = dfMateria['Sec'].nunique()
+        diffsec[renglon] = num_secciones
+
+    diccionarioCupos = {}
+    for materia in classes:
+        dfMateria = df[df['Materia'] == materia]
+        sumaCupos = dfMateria['CUP'].sum()
+        diccionarioCupos[materia] = sumaCupos
+
+    diccionarioResiduos = {}
+
+    for materia in classes:
+        dfMateria = df[df['Materia'] == materia]
+        sumaResiduos = dfMateria['DIS'].sum()
+        diccionarioResiduos[materia] = sumaResiduos
+
+        
+    # Crear DataFrame combinado
+    dfResumen = pd.DataFrame({
+        'Materia': classes,
+        'Total_Cupos': [diccionarioCupos.get(m, 0) for m in classes],
+        'Total_Secciones': [diffsec.get(m, 0) for m in classes],
+        'Residuos_Cupos': [diccionarioResiduos.get(m, 0) for m in classes]
+    })
+
+    # Guardar archivo
+    nombre_base = os.path.basename(file).replace('.xlsx', '')
+    nombre_salida = f'resumen_cupos_{nombre_base}.xlsx'
+    dfResumen.to_excel(nombre_salida, index=False)
+
+    print(f"Archivo generado: {nombre_salida}")
