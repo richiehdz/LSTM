@@ -1,3 +1,8 @@
+'''
+This code the only thing that does is take the most important variables on all the 'dataset_resumidos' files
+and unifique in a single and final dataset
+'''
+
 import pandas as pd
 import glob
 import re

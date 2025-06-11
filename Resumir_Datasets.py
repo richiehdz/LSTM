@@ -1,8 +1,14 @@
+'''
+This code the only thing that does is to go to all original dataset files and extract the most
+important data and create a file for each semester summarized
+
+Later these datasets are gona be used to unificate and create a single and final dataset.
+'''
 import pandas as pd
 import glob
 import os
 
-datasetsLocation = 'datasets/*.xlsx'
+datasetsLocation = 'datasets_originales/*.xlsx'
 files = glob.glob(datasetsLocation)
 
 for file in files:

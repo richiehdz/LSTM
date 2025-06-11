@@ -1,7 +1,13 @@
+'''
+This code the only thing that does is to print us an average spaces for every class
+'''
+
+
 import pandas as pd
 import glob
 
-datasetsLocation = 'datasets/*.xlsx'
+
+datasetsLocation = 'datasets_originales/*.xlsx'
 files = glob.glob(datasetsLocation)
 
 # Diccionario acumulador: {materia: [total_cupos, total_secciones]}
