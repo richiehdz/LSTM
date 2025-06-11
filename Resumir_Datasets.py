@@ -11,10 +11,18 @@ import os
 datasetsLocation = 'datasets_originales/*.xlsx'
 files = glob.glob(datasetsLocation)
 
+materias_excluidas = [
+    'PROYECTO DE GESTION DE LA TECNOLOGIA DE INFORMACION',
+    'PROYECTO DE SISTEMAS ROBUSTOS, PARALELOS Y DISTRIBUIDOS',
+    'COMPUTO FLEXIBLE (SOFTCOMPUTING)',
+    'ANALISIS DE PROBLEMAS GLOBALES DEL SIGLO XXI',
+
+]
+
 for file in files:
     df = pd.read_excel(file)
     classes = []
-    columnaMaterias = df['Materia'].dropna().unique()
+    columnaMaterias = [m for m in df['Materia'].dropna().unique() if m not in materias_excluidas]
     
     diffsec = {}
     for renglon in columnaMaterias:
@@ -48,8 +56,9 @@ for file in files:
     })
 
     # Guardar archivo
+    output_folder='datasets_resumidos'
     nombre_base = os.path.basename(file).replace('.xlsx', '')
-    nombre_salida = f'resumen_cupos_{nombre_base}.xlsx'
+    nombre_salida = os.path.join(output_folder, f'resumen_cupos_{nombre_base}.xlsx')
     dfResumen.to_excel(nombre_salida, index=False)
 
     print(f"Archivo generado: {nombre_salida}")
