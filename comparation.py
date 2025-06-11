@@ -1,3 +1,8 @@
+'''
+This code only compares the prediction with the 
+dataset of the next calendar (the one that is trying to predict)
+'''
+
 import pandas as pd
 
 # Cargar archivos
