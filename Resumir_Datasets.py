@@ -62,5 +62,5 @@ def resumir_datasets():
         dfResumen.to_excel(nombre_salida, index=False)
 
         print(f"Archivo generado: {nombre_salida}")
-        print("Funcion de resumir los datasets ejecutada con exito", flush=True)
-        print(f'asdasd', flush=True)
+        print("Funcion de resumir los datasets ejecutada con exito")
+        
