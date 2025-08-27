@@ -6,7 +6,7 @@ def comparation2():
     import numpy as np
 
     # Cargar archivos
-    archivo_real = 'resumen_cupos_2025A.xlsx'  # Archivo real con Total_Cupos y Residuos_Cupos
+    archivo_real = 'resumen_cupos_2025B.xlsx'  # Archivo real con Total_Cupos y Residuos_Cupos
     archivo_pred = 'predicciones_cupos_proximo_semestre.xlsx'  # Archivo con predicciones
 
     # Leer archivos
@@ -28,11 +28,13 @@ def comparation2():
     mae = df_merged["Error_Absoluto"].mean()
     mape = df_merged["Porcentaje_Error"].mean() * 100
 
-    # Tabla final ordenada
-    df_resultado = df_merged[["Materia", "Cupos_Usados", "Cupos_Estimados", "Error_Absoluto", "Desviacion_%"]]
+    # Tabla final ordenada (ahora incluye Total_Cupos)
+    df_resultado = df_merged[["Materia", "Total_Cupos", "Cupos_Usados", "Cupos_Estimados", "Error_Absoluto", "Desviacion_%"]]
     df_resultado = df_resultado.sort_values("Desviacion_%", key=lambda x: abs(x), ascending=False)
 
     # Mostrar resultados
     print(df_resultado.to_string(index=False))
     print(f"\n📊 MAE (promedio de error absoluto en cupos usados): {mae:.2f}")
     print(f"📉 MAPE (porcentaje de error promedio en cupos usados): {mape:.2f}%")
+
+comparation2()
