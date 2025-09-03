@@ -1,17 +1,9 @@
-'''
-This code the only thing that does is to go to all original dataset files and extract the most
-important data and create a file for each semester summarized
-
-Later these datasets are gona be used to unificate and create a single and final dataset.
-'''
-
+# Resumir_Datasets.py
 def resumir_datasets():
     import pandas as pd
-    import glob
-    import os
-    datasetsLocation = 'datasets_originales/*.xlsx'
-    files = glob.glob(datasetsLocation)
+    import glob, os
 
+    files = glob.glob('datasets_originales/*.xlsx')
     materias_excluidas = [
         'PROYECTO DE GESTION DE LA TECNOLOGIA DE INFORMACION',
         'PROYECTO DE SISTEMAS ROBUSTOS, PARALELOS Y DISTRIBUIDOS',
@@ -21,46 +13,31 @@ def resumir_datasets():
 
     for file in files:
         df = pd.read_excel(file)
-        classes = []
-        columnaMaterias = [m for m in df['Materia'].dropna().unique() if m not in materias_excluidas]
-        
-        diffsec = {}
-        for renglon in columnaMaterias:
-            if renglon not in classes:
-                classes.append(renglon)
+        df['Materia'] = df['Materia'].astype(str).str.strip().str.upper()
 
-            dfMateria = df[df['Materia'] == renglon]
-            num_secciones = dfMateria['Sec'].nunique()
-            diffsec[renglon] = num_secciones
+        clases = [m for m in df['Materia'].dropna().unique() if m not in materias_excluidas]
 
-        diccionarioCupos = {}
-        for materia in classes:
-            dfMateria = df[df['Materia'] == materia]
-            sumaCupos = dfMateria['CUP'].sum()
-            diccionarioCupos[materia] = sumaCupos
+        # Secciones por materia
+        secciones = df.groupby('Materia')['Sec'].nunique().reindex(clases).fillna(0).astype(int)
 
-        diccionarioResiduos = {}
+        # Cupos / Residuos por materia
+        total_cupos = df.groupby('Materia')['CUP'].sum().reindex(clases).fillna(0)
+        residuos    = df.groupby('Materia')['DIS'].sum().reindex(clases).fillna(0)
 
-        for materia in classes:
-            dfMateria = df[df['Materia'] == materia]
-            sumaResiduos = dfMateria['DIS'].sum()
-            diccionarioResiduos[materia] = sumaResiduos
-
-            
-        # Crear DataFrame combinado
         dfResumen = pd.DataFrame({
-            'Materia': classes,
-            'Total_Cupos': [diccionarioCupos.get(m, 0) for m in classes],
-            'Total_Secciones': [diffsec.get(m, 0) for m in classes],
-            'Residuos_Cupos': [diccionarioResiduos.get(m, 0) for m in classes]
+            'Materia': clases,
+            'Total_Cupos': total_cupos.values,
+            'Total_Secciones': secciones.values,
+            'Residuos_Cupos': residuos.values
         })
 
-        # Guardar archivo
-        output_folder='datasets_resumidos'
+        os.makedirs('datasets_resumidos', exist_ok=True)
         nombre_base = os.path.basename(file).replace('.xlsx', '')
-        nombre_salida = os.path.join(output_folder, f'resumen_cupos_{nombre_base}.xlsx')
-        dfResumen.to_excel(nombre_salida, index=False)
+        out = os.path.join('datasets_resumidos', f'resumen_cupos_{nombre_base}.xlsx')
+        dfResumen.to_excel(out, index=False)
+        print(f"Archivo generado: {out}")
 
-        print(f"Archivo generado: {nombre_salida}")
-        print("Funcion de resumir los datasets ejecutada con exito")
-        
+    print("Función de resumir los datasets ejecutada con éxito")
+
+if __name__ == '__main__':
+    resumir_datasets()
